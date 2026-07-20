@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import "./App.css";
 
 const NAV_LINKS = ["Services", "Work", "Products", "Blog", "About", "Contact"];
@@ -131,12 +131,6 @@ export default function ZielGlobalHome() {
   return (
     <div>
 
-      {/* ── WHATSAPP FLOAT ── */}
-      <a href="http://wa.me/447456234972" className="wa-float" target="_blank" rel="noreferrer">
-        <span style={{ fontSize: "1.1rem" }}>💬</span>
-        WhatsApp Us
-      </a>
-
       {/* ── NAVBAR ── */}
       <div className={`navbar-wrap${scrolled ? " scrolled" : ""}`}>
         <div className="navbar-inner">
@@ -145,9 +139,31 @@ export default function ZielGlobalHome() {
             ZI<span className="logo-dot">ë</span>L
           </a>
 
+         <div className="desktop-nav">
+  <Link to="/services" className="nav-link">
+    Services
+  </Link>
+         <div className="desktop-nav">
+  <Link to="/contact" className="nav-link">
+    Contact
+  </Link>
+  </div>
+        <div className="desktop-nav">
+  <Link to="/about" className="nav-link">
+    About
+  </Link>
+  </div>
+         <div className="desktop-nav">
+  <Link to="/Blog" className="nav-link">
+    Blog
+  </Link>
+  </div>
           <div className="desktop-nav">
-            {NAV_LINKS.map(l => <a key={l} href="#" className="nav-link">{l}</a>)}
-          </div>
+  <Link to="/Work" className="nav-link">
+    Work
+  </Link>
+  </div>
+</div>
 
           <button className="lime-btn desktop-nav">
             Start a project <span>↗</span>
@@ -175,9 +191,37 @@ export default function ZielGlobalHome() {
           style={{ position: "absolute", top: 20, right: 20, background: "none", border: "none", fontSize: "1.5rem", cursor: "pointer" }}>
           ✕
         </button>
-        {NAV_LINKS.map(l => (
-          <a key={l} href="#" className="mobile-menu-link" onClick={() => setMenuOpen(false)}>{l}</a>
-        ))}
+      <div className="mobile-menu-links">
+  <Link
+    to="/services"
+    className="mobile-menu-link"
+    onClick={() => setMenuOpen(false)}
+  >
+    Services
+  </Link>
+      <div className="mobile-menu-links">
+  <Link
+    to="/contact"
+    className="mobile-menu-link"
+    onClick={() => setMenuOpen(false)}
+  >
+    Contact
+  </Link>
+  </div>
+       <div className="mobile-menu-links">
+  <Link
+    to="/about"
+    className="mobile-menu-link"
+    onClick={() => setMenuOpen(false)}
+  >
+    About
+  </Link>
+  </div>
+
+  <a href="#" className="mobile-menu-link">Work</a>
+  <a href="#" className="mobile-menu-link">Products</a>
+  <a href="#" className="mobile-menu-link">Blog</a>
+</div>
         <button className="lime-btn lime-btn-lg" style={{ marginTop: "auto", justifyContent: "center" }}>
           Start a project ↗
         </button>
@@ -234,38 +278,53 @@ export default function ZielGlobalHome() {
 
       {/* ── ABOUT ── */}
       <section className="about-section">
-        <div className="about-grid">
-          {/* LEFT: Big Bold Heading (image jesa) */}
-          <div className="about-left">
-            <h2 className="about-heading">
-              A strategic technology partner dedicated to elevating your brand, empowering businesses of every size and industry with cost-effective, customized solutions.
-            </h2>
-          </div>
+  <div className="about-grid">
+    <div className="about-left">
+      <h2 className="about-heading">
+        A strategic technology partner
+        dedicated to elevating your
+        brand, empowering businesses
+        of every size and industry with
+        cost-effective, customized
+        solutions.
+      </h2>
+    </div>
 
-          {/* RIGHT: Description paragraphs + CTA */}   
-          <div className="about-right">
-            <p>
-              Founded in 2019, Ziel Global is a trusted software house specialising in AI, Staff Augmentation, ERP Consultancy, Cloud Engineering, Cybersecurity, and Custom Software Development.
-            </p>
-            <p>
-              We focus on delivering innovative, reliable, and scalable solutions tailored to meet the unique needs of every client. Whether it's leveraging AI for smarter decision-making, streamlining operations with ERP systems, fortifying your digital security, or building custom software, Ziel Global ensures every project exceeds expectations.
-            </p>
-            <p>
-              Our team is committed to driving digital transformation and empowering businesses with cutting-edge technology. With expertise in cloud engineering and a deep understanding of cybersecurity, we are equipped to handle even the most complex challenges.
-            </p>
-            <p>
-              If you're looking for a dependable software partner to elevate your business, Ziel Global is here to help
-            </p>
-            <button className="lime-btn lime-btn-lg">
-              Start a project
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17L17 7"/>
-                <path d="M7 7h10v10"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
+    <div className="about-right">
+      <p>
+        Founded in 2019, Ziel Global is a trusted software house
+        specialising in AI, Staff Augmentation, ERP Consultancy,
+        Cloud Engineering, Cybersecurity, and Custom Software
+        Development.
+      </p>
+
+      <p>
+        We focus on delivering innovative, reliable, and scalable
+        solutions tailored to meet the unique needs of every client.
+        Whether it's leveraging AI for smarter decision-making,
+        streamlining operations with ERP systems, fortifying your
+        digital security, or building custom software, Ziel Global
+        ensures every project exceeds expectations.
+      </p>
+
+      <p>
+        Our team is committed to driving digital transformation
+        and empowering businesses with cutting-edge technology.
+        With expertise in cloud engineering and cybersecurity,
+        we are equipped to handle even the most complex challenges.
+      </p>
+
+      <p>
+        If you're looking for a dependable software partner to
+        elevate your business, Ziel Global is here to help.
+      </p>
+
+      <button className="lime-btn">
+        Start a project <span>↗</span>
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* ─── LETS WORK TOGETHER - HORIZONTAL TICKER ─── */}
       <div className="work-ticker-section">
@@ -289,7 +348,9 @@ export default function ZielGlobalHome() {
               <div className="section-label">Services</div>
               <h2 className="section-heading">Comprehensive IT Solutions</h2>
             </div>
-            <a href="#">See all services →</a>
+ <Link to="/services" className="nav-link">
+  Services
+</Link>
           </div>
 
           <div className="svc-grid">
@@ -492,6 +553,10 @@ export default function ZielGlobalHome() {
           </div>
         </div>
       </footer>
+      <a href="#" className="whatsapp">
+        WhatsApp Us
+      </a>
     </div>
+    
   );
 }
